@@ -1,0 +1,31 @@
+.tooltip {
+  position: absolute;
+  width: 135px;
+  background-color: #2B7A78;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  z-index: 3;
+  bottom: 100%;
+  margin-left: 50px;
+  font-size: 12px;
+}
+.tooltip::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #2B7A78 transparent transparent transparent;
+}
+.closeSmall {
+  position: relative;
+  bottom: -4px;
+}
+.searchSmall {
+  position: relative;
+  top: 4px;
+}

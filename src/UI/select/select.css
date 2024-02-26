@@ -1,0 +1,94 @@
+.selectContainer {
+  position: relative;
+  background: rgb(255, 255, 255);
+}
+.selectButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #2B7A78;
+  border-radius: 3px;
+  padding: 1px 5px 1px 15px;
+  height: 23.5px;
+}
+.selectTitle {
+  border: none;
+  min-width: 188px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4f5f76;
+  flex-grow: 1;
+}
+.selectTitle:focus {
+  outline: none;
+}
+.optionTitle {
+  font-size: 14px;
+  color: #4f5f76;
+}
+.downArrow {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.dropdownStyle {
+  position: absolute;
+  width: calc(100% - 32px);
+  max-height: 194px;
+  padding: 0px 15px 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: 10px solid #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 3px 3px;
+  transition: max-height 0.2s ease;
+  overflow-y: scroll;
+}
+.hidden {
+  visibility: hidden;
+}
+.show {
+  visibility: visible;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+.inputWrap {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  border: 1px solid #2B7A78;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 0;
+  gap: 5px;
+}
+.inputWrap:focus-within {
+  background: lightblue;
+}
+.dropdownInput {
+  width: calc(220px - 32px - 24px - 10px);
+  height: 14px;
+  border: none;
+  background: transparent;
+  color: #4f5f76;
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+}
+.dropdownInput:focus {
+  outline: none;
+}
+.inputClose {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.dropdownItem {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 3px;
+}

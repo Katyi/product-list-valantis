@@ -1,0 +1,9 @@
+.product_title_tablet {
+  display: none;
+}
+@media (max-width: 768px) {
+  .product_title_tablet {
+    display: block;
+    font-weight: 700;
+  }
+}
