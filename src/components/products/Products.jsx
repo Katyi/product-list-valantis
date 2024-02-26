@@ -11,17 +11,6 @@ import Select from '../../UI/select/Select';
 import Tooltip from '../../UI/tooltip/Tooltip';
 import ButtonClear from '../../UI/button/ButtonClear';
 
-const styles = {
-  pagination: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginTop: '20px',
-    marginBottom: '20px',
-    position:"relative",
-    top: "45px"
-  },
-};
-
 const Products = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [count, setCount] = useState(0);
