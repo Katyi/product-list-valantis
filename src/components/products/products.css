@@ -4,6 +4,7 @@
   padding: 85px 20px calc(60px + 50px);
   padding: 0 20px;
   overflow-y: scroll;
+  overflow-x: hidden;
   z-index: 1;
   background: #fff;
   margin-top: 85px;
@@ -13,7 +14,7 @@
   position: fixed;
   background: #fff;
   height: 42px;
-  width: calc(100vw - 40px);
+  width: calc(100vw - 48px);
   display: flex;
   align-items: center;
   justify-content: end;
@@ -32,7 +33,7 @@ tbody {
   top: 50px;
 }
 .product, .product_header {
-  width: calc(98vw - 41px);
+  width: calc(98vw - 51px);
   height: 28px;
   display: flex;
   border-bottom: 0.5px solid #2B7A78;
@@ -45,6 +46,7 @@ tbody {
 }
 .product_header {
   position: fixed;
+  width: calc(98vw - 50px);
   border: 1px solid #2B7A78;
   height: 24px;
   border-radius: 3px;

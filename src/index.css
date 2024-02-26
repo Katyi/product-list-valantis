@@ -28,6 +28,7 @@ body {
   height: calc(100vh);
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
