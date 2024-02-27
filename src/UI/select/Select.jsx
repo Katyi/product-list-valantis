@@ -4,7 +4,7 @@ import downArrow from '../../assets/down-arrow.svg';
 import close from '../../assets/close.svg';
 import { getOptions } from '../../components/products/requests';
 
-const Select = ({options, setOptions, selectedValue, onChange, open, setOpen}) => {
+const Select = ({options, setOptions, selectedValue, onChange, open, setOpen, order}) => {
   const selectRef = useRef(null);
   const [query, setQuery] = useState("");
 
@@ -38,18 +38,16 @@ const Select = ({options, setOptions, selectedValue, onChange, open, setOpen}) =
   useEffect(() => {    
     document.addEventListener('mousedown', handleOutsideClick);
     return () => document.removeEventListener('mousedown', handleOutsideClick);
-    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     document.addEventListener('keydown', handleSelectKeyDown);
     return () => document.removeEventListener('keydown', handleSelectKeyDown);
-    // eslint-disable-next-line
   }, []);
 
   return (
     <div className="selectContainer" ref={selectRef}>
-      <div className="selectButton" onClick={() => setOpen(!open)}>
+      <div className="selectButton" onClick={() => setOpen(!open)} tabIndex={order}>
         <div className='selectTitle'>{selectedValue}</div>
         <img src={downArrow} alt="downArrow" className={`"downArrow" ${open ? "rotate" : ""}`} />
       </div>

@@ -21,6 +21,11 @@
   gap: 5px;
   z-index: 2;
 }
+.forScreenMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 h1 {
   color: #2B7A78;
 }

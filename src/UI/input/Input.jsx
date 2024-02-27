@@ -3,7 +3,7 @@ import classes from './input.module.css';
 
 const Input = React.forwardRef((props, ref) => {
   return (
-    <input ref={ref} className={classes.myInput} {...props} data-dismiss="modal"/>
+    <input ref={ref} className={classes.myInput} tabIndex={props.order} {...props} data-dismiss="modal"/>
   );
 });
 

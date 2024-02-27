@@ -74,12 +74,14 @@ const Products = () => {
   const handleSelectChange = (value) => {
     setIndexOfFirstProject(0);
     setIndexOfLastProject(50);
-    setSearchValue({searchProduct: "", searchPrice: ""});
-    setSelectedBrand(value);
     setOpen(false);
     if (value !== "Все бренды") {
+      setSearchValue({searchProduct: "", searchPrice: ""});
+      setSelectedBrand(value);
       searchItems("brand", value, setCount, setIds, setProducts, setIsLoading, indexOfFirstProject, indexOfLastProject);
-    } else {
+    } else if(selectedBrand !== "Все бренды") {
+      setSearchValue({searchProduct: "", searchPrice: ""});
+      setSelectedBrand(value);
       getAllIdsAndProducts(setCount, setIds, setProducts, setIsLoading);
     }
     setPage(1);
@@ -87,20 +89,26 @@ const Products = () => {
 
   // FOR CANSEL SEARCH
   const cancelSearch = (e) => {
-    if (searchValue.searchProduct !== "" || searchValue.searchPrice !== "" || selectedBrand !== "Все") {
-      if (e.currentTarget.id === 'productClose') {
-        setSearchValue({...searchValue, searchProduct: ""});
-        getAllIdsAndProducts(setCount, setIds, setProducts, setIsLoading);
-      } else if (e.currentTarget.id === 'priceClose') {
-        setSearchValue({...searchValue, searchPrice: ""});
-        getAllIdsAndProducts(setCount, setIds, setProducts, setIsLoading);
-      } else if (e.target.id === 'allClose') {
-        setSearchValue({searchProduct: "", searchPrice: ""});
-        setSelectedBrand("Все");
-        getAllIdsAndProducts(setCount, setIds, setProducts, setIsLoading);
-      }
+    if (e.currentTarget.id === 'productClose' && searchValue.searchProduct !== "") {
+      setIndexOfFirstProject(0);
+      setIndexOfLastProject(50);
+      setSearchValue({...searchValue, searchProduct: ""});
+      getAllIdsAndProducts(setCount, setIds, setProducts, setIsLoading);
+        setPage(1);
+    } else if (e.currentTarget.id === 'priceClose' && searchValue.searchPrice !== "") {
+      setIndexOfFirstProject(0);
+      setIndexOfLastProject(50);
+      setSearchValue({...searchValue, searchPrice: ""});
+      getAllIdsAndProducts(setCount, setIds, setProducts, setIsLoading);
+      setPage(1);
+    } else if (e.target.id === 'allClose' && (searchValue.searchProduct !== "" || searchValue.searchPrice !== "" || selectedBrand !== "Все бренды")) {
+      setIndexOfFirstProject(0);
+      setIndexOfLastProject(50);
+      setSearchValue({searchProduct: "", searchPrice: ""});
+      setSelectedBrand("Все бренды");
+      getAllIdsAndProducts(setCount, setIds, setProducts, setIsLoading);
+      setPage(1);
     }
-    setPage(1);
   };
 
   useEffect(() => {
@@ -111,7 +119,7 @@ const Products = () => {
 
   return (
     <div>
-      {isLoading && <div className="products" style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+      {isLoading && <div className="products forScreenMessage">
         <h1>Загрузка <span className="dot">.</span><span className="dot">.</span><span className="dot">.</span></h1>
       </div>}
       {!isLoading &&  
@@ -128,6 +136,7 @@ const Products = () => {
               onChange={e => setSearchValue({ ...searchValue, searchProduct: e.target.value })}
               type="text"
               placeholder="Название"
+              order={1}
             />
             <Button type='submit'>
               <img src={search} alt="search" className='search'/>
@@ -148,6 +157,7 @@ const Products = () => {
               onChange={e => setSearchValue({ ...searchValue, searchPrice: e.target.value })}
               type="number"
               placeholder="Цена"
+              order={2}
             />
             <Button type='submit'>
               <img src={search} alt="search" className='search'/>
@@ -165,9 +175,11 @@ const Products = () => {
             onChange={handleSelectChange}
             open={open}
             setOpen={setOpen}
+            className="order-3"
+            order={3}
           />
 
-          <ButtonClear type="button" id='allClose' onClick={cancelSearch} >Очистить</ButtonClear>
+          <ButtonClear type="button" id='allClose' onClick={cancelSearch} order={4}>Очистить</ButtonClear>
         </div>
         
         <table>
@@ -193,15 +205,15 @@ const Products = () => {
         </table>
         
         {/* PAGINATION */}
-        <Pagination
-          // style={styles.pagination}
+        {products.length > 0 ?  <Pagination
+          tabIndex={-1}
           className='pagination'
           count={Math.ceil(count / limit)}
           page={page}
           onChange={handleChangePage}
-        />
-        </div>
-        }
+        /> : <h1 className='forScreenMessage' style={{height: "calc(100vh - 85px - 60px - 42px - 100px)"}}>Нет данных</h1>}
+      </div>
+      }
     </div>
   );
 };

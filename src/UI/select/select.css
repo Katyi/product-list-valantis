@@ -11,6 +11,10 @@
   padding: 1px 5px 1px 15px;
   height: 23.5px;
 }
+.selectButton:focus {
+  outline: none;
+  background: lightblue;
+}
 .selectTitle {
   border: none;
   min-width: 188px;

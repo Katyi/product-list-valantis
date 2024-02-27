@@ -2,7 +2,6 @@ import classes from './tooltip.module.css';
 import searchSmall from '../../assets/searchSmall.svg';
 import closeSmall from '../../assets/closeSmall.svg';
 
-
 const Tooltip = ({setShow}) => {
   return (
     <div

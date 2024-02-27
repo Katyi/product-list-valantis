@@ -1,21 +1,26 @@
 .myBtn {
-  padding: 6px 15px;
+  padding: 5px 15px;
+  width: 90px;
   background: #2B7A78;
   color: #fff;
-  border: none;
+  border: 1px solid #2B7A78;
   border-radius: 3px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+.myBtn:hover {
+  outline: none;
+  border: 1px solid #2B7A78;
+  background: lightblue;
+  color: #2B7A78;
+  font-weight: 700;
+}
 .myBtn:focus {
   outline: none;
-}
-
-@media (min-width: 769px) and (max-width: 1240px)  {
-  .myBtn {
-    /* padding: 5px; */
-  }
+  border: 1px solid #2B7A78;
+  background: lightblue;
+  color: #2B7A78;
+  font-weight: 700;
 }
