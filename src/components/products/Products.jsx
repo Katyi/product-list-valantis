@@ -79,7 +79,7 @@ const Products = () => {
       setSearchValue({searchProduct: "", searchPrice: ""});
       setSelectedBrand(value);
       searchItems("brand", value, setCount, setIds, setProducts, setIsLoading, indexOfFirstProject, indexOfLastProject);
-    } else if(selectedBrand !== "Все бренды") {
+    } else if(selectedBrand !== "Все бренды" || searchValue.searchProduct !== "" || searchValue.searchPrice !== "") {
       setSearchValue({searchProduct: "", searchPrice: ""});
       setSelectedBrand(value);
       getAllIdsAndProducts(setCount, setIds, setProducts, setIsLoading);
