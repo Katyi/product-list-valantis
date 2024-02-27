@@ -5,7 +5,7 @@ import formatDate from "../../utils/formatDate";
 const PASSWORD = import.meta.env.VITE_STRIPE;
 const TODAY = formatDate(new Date());
 const MD5PASSWORD = md5(`${PASSWORD}_${TODAY}`);
-const apiUrl = 'http://api.valantis.store:40000/';
+const apiUrl = 'https://api.valantis.store:41000/';
 const headers = {
   'X-Auth': MD5PASSWORD,
 };
